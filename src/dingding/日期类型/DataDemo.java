@@ -3,6 +3,7 @@ package dingding.日期类型;
 import org.junit.Test;
 
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -97,5 +98,20 @@ public class DataDemo {
         System.out.println("相差"+years+"年");
         System.out.println("相差"+month+"月");
         System.out.println("相差"+days+"日");
+    }
+
+    //获取今天的日期及时间
+    @Test
+    public void test9(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime);
+    }
+
+    //日期格式化
+    @Test
+    public void test10(){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        System.out.println(localDateTime.format(dateTimeFormatter));
     }
 }
