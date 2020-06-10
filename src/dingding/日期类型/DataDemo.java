@@ -2,9 +2,7 @@ package dingding.日期类型;
 
 import org.junit.Test;
 
-import java.time.Clock;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 /**
@@ -77,5 +75,27 @@ public class DataDemo {
         if (yesterday.isBefore(today)){
             System.out.println("昨天在今天之前");
         }
+    }
+
+    @Test
+    public void test7(){
+        YearMonth currentYearMouth = YearMonth.now();
+        System.out.println(currentYearMouth.lengthOfMonth());
+
+        YearMonth creditCardExpiry = YearMonth.of(2020, Month.DECEMBER);
+        System.out.println(creditCardExpiry);
+    }
+
+    //计算两个日期之间的天数
+    @Test
+    public void test8(){
+        LocalDate today = LocalDate.now();
+        LocalDate release = LocalDate.of(2021,7,10);
+        long years = today.until(release, ChronoUnit.YEARS);
+        long month = today.until(release, ChronoUnit.MONTHS);
+        long days = today.until(release, ChronoUnit.DAYS);
+        System.out.println("相差"+years+"年");
+        System.out.println("相差"+month+"月");
+        System.out.println("相差"+days+"日");
     }
 }
