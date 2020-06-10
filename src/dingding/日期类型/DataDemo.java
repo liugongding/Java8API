@@ -1,0 +1,81 @@
+package dingding.日期类型;
+
+import org.junit.Test;
+
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
+
+/**
+ * @author liudingding
+ * @ClassName DataDemo
+ * @description
+ * Java8新的日期类api
+ * @date 2020/6/10 12:57 下午
+ */
+public class DataDemo {
+
+
+    //获取今天的日期
+    @Test
+    public void test1(){
+        LocalDate today = LocalDate.now();
+        System.out.println("今天日期："+today);
+    }
+
+    //获取年月日
+    @Test
+    public void test2(){
+        LocalDate localDate = LocalDate.now();
+        int year = localDate.getYear();
+        int mouth = localDate.getMonthValue();
+        int day = localDate.getDayOfMonth();
+
+        System.out.println(year);
+        System.out.println(mouth);
+        System.out.println(day);
+    }
+
+    //获取当前时间，不含日期
+    @Test
+    public void test3(){
+        LocalTime localTime = LocalTime.now();
+        System.out.println("当前时间："+localTime);
+    }
+
+    //计算一周后的日期
+    @Test
+    public void test4(){
+        LocalDate localDate = LocalDate.now();
+        System.out.println("今天日期："+localDate);
+        //第一个参数表示传入数字几,第二个参数代表是年，月，日
+        //1表示1周，ChronoUnit.WEEKS表示周，也可以是ChronoUnit.YEARS年
+        LocalDate nextWeek = localDate.plus(1, ChronoUnit.WEEKS);
+        System.out.println("一周后的日期："+nextWeek);
+    }
+
+    //Clock时钟类，System.currentTimeInMillis和TimeZone.getDefault都可以用Clock代替
+    @Test
+    public void test5(){
+        Clock clock = Clock.systemUTC();
+        System.out.println(clock.millis());
+        System.out.println(System.currentTimeMillis());
+    }
+
+    //用java判断日期是否早于还是晚于一个时期
+    @Test
+    public void test6(){
+        LocalDate today = LocalDate.now();
+        LocalDate tomorrow = LocalDate.of(today.getYear(),today.getMonthValue(),today.getDayOfMonth()+1);
+        LocalDate yesterday = LocalDate.of(today.getYear(),today.getMonthValue(),today.getDayOfMonth()-1);
+
+        if (tomorrow.isAfter(today)){
+            System.out.println("明天在今天之后");
+        }
+
+        if (yesterday.isBefore(today)){
+            System.out.println("昨天在今天之前");
+        }
+    }
+}
