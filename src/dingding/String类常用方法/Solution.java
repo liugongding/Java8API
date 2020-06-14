@@ -156,4 +156,20 @@ public class Solution {
         System.out.println(str.substring(4));
         System.out.println(str.substring(4,10));
     }
+
+    //toUpperCase：字符串转大写
+    @Test
+    public void test16(){
+        String str = "hello";
+        System.out.println(str.toUpperCase());
+    }
+
+    //trim：去字符串首尾空格
+    @Test
+    public void test17(){
+        String str = " hello    ";
+        String newStr = str.trim();
+        System.out.println(newStr);
+        System.out.println(newStr.length());
+    }
 }
