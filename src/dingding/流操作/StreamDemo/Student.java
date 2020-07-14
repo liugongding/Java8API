@@ -1,5 +1,7 @@
 package dingding.流操作.StreamDemo;
 
+import lombok.Data;
+
 import java.util.Objects;
 
 /**
@@ -8,13 +10,21 @@ import java.util.Objects;
  * @description
  * @date 2020/6/9 7:18 下午
  */
+@Data
 public class Student {
     public String name;
     public Integer age;
+    public String className;
+
 
     public Student(String name, Integer age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Student(String className, String name){
+        this.className = className;
+        this.name = name;
     }
 
     public String getName() {
@@ -31,6 +41,14 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
     }
 
     @Override

@@ -111,7 +111,24 @@ public class DataDemo {
     @Test
     public void test10(){
         LocalDateTime localDateTime = LocalDateTime.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
         System.out.println(localDateTime.format(dateTimeFormatter));
+
+    }
+
+
+
+
+    public static void main(String[]args){
+        int[]x={0,1,2,3};
+        for (int i = 0; i < 3; i+=2) {
+            try {
+                System.out.println(x[i+2]/x[i]+x[i+1]);
+            } catch (ArithmeticException e){
+                System.out.println("error1");
+            }catch (Exception e){
+                System.out.println("error2");
+            }
+        }
     }
 }
