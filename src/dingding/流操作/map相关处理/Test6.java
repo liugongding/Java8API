@@ -1,4 +1,4 @@
-package dingding.流操作.StreamDemo.map相关处理;
+package dingding.流操作.map相关处理;
 
 import dingding.流操作.StreamDemo.Student;
 import org.junit.Test;
@@ -24,10 +24,8 @@ public class Test6 {
                 new Student("3年2班", "哈哈哈")
         );
 
-       studentList.stream()
+        Map<String, List<Student>> collect = studentList.stream()
                 .collect(Collectors.groupingBy(Student::getClassName));
-
-
 
 
 //        Map<String, List<String>> stringListMap = studentList.stream()
@@ -40,9 +38,9 @@ public class Test6 {
 //                            v1.addAll(v2);
 //                            return v1;
 //                        }));
-        Map<String, List<String>> listMap = new HashMap<>();
+        Map<String, List<Student>> listMap = new HashMap<>();
         for (Student student : studentList) {
-            listMap.computeIfAbsent(student.getClassName(), k -> new ArrayList<>()).add(student.getName());
+            listMap.computeIfAbsent(student.getClassName(), k -> new ArrayList<>()).add(student);
         }
 
 
